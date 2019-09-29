@@ -1,5 +1,6 @@
 package com.madadipouya.example.multiple.datasource.lyrics.config
 
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.context.annotation.Bean
@@ -14,7 +15,9 @@ import javax.sql.DataSource
 
 
 @Configuration
-@EnableJpaRepositories(entityManagerFactoryRef = "lyricsEntityManagerFactory", transactionManagerRef = "lyricsTransactionManager")
+@EnableJpaRepositories(entityManagerFactoryRef = "lyricsEntityManagerFactory",
+        transactionManagerRef = "lyricsTransactionManager",
+        basePackages = ["com.madadipouya.example.multiple.datasource.lyrics"])
 class LyricsDatasourceConfig {
 
     @Bean
@@ -22,9 +25,9 @@ class LyricsDatasourceConfig {
     fun lyricsDatasource(): DataSource = DataSourceBuilder.create().build()
 
     @Bean(name = ["lyricsTransactionManager"])
-    fun lyricsTransactionManager(dataSource1EntityManagerFactory: EntityManagerFactory): PlatformTransactionManager {
+    fun lyricsTransactionManager(@Qualifier("lyricsEntityManagerFactory") entityManagerFactory: EntityManagerFactory): PlatformTransactionManager {
         val transactionManager = JpaTransactionManager()
-        transactionManager.entityManagerFactory = dataSource1EntityManagerFactory
+        transactionManager.entityManagerFactory = entityManagerFactory
         return transactionManager
     }
 

@@ -1,14 +1,13 @@
 package com.madadipouya.example.multiple.datasource.song.entity
 
-import javax.persistence.*
+import com.madadipouya.example.multiple.datasource.entity.AbstractJpaPersistable
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Table
 
 @Entity
 @Table(name = "songs")
-data class Song(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
-
+class Song(
         @Column(name = "artist_name", nullable = false)
         val artistName: String,
 
@@ -17,6 +16,4 @@ data class Song(
 
         @Column(name = "lyrics_id", nullable = false)
         val lyricsId: Int
-)
-
-
+) : AbstractJpaPersistable<Int>()

@@ -16,7 +16,8 @@ import javax.sql.DataSource
 @Configuration
 @EnableJpaRepositories(
         entityManagerFactoryRef = "songEntityManagerFactory",
-        transactionManagerRef = "songTransactionManager")
+        transactionManagerRef = "songTransactionManager",
+        basePackages = ["com.madadipouya.example.multiple.datasource.song"])
 class SongDatasourceConfig {
 
     @Bean
@@ -26,9 +27,9 @@ class SongDatasourceConfig {
 
     @Bean(name = ["songTransactionManager"])
     @Primary
-    fun songTransactionManager(dataSource1EntityManagerFactory: EntityManagerFactory): PlatformTransactionManager {
+    fun songTransactionManager(entityManagerFactory: EntityManagerFactory): PlatformTransactionManager {
         val transactionManager = JpaTransactionManager()
-        transactionManager.entityManagerFactory = dataSource1EntityManagerFactory
+        transactionManager.entityManagerFactory = entityManagerFactory
         return transactionManager
     }
 
