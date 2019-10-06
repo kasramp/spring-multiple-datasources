@@ -5,7 +5,7 @@ An example of Spring Boot, written in Kotlin, demonstrates how to use multiple d
 
 ## How to run
 
-First need to start the databases (MySQL and PostgreSQL) with `docker-compose`,
+First need to start the databases (MySQL 8 and PostgreSQL 12) with `docker-compose`,
 
 ```bash
 $ docker-compose up -d
