@@ -1,11 +1,16 @@
 # Spring Boot multiple datasources
 
-An example of Spring Boot, written in Kotlin, demonstrates how to use multiple datasources with the ability of creating tables of the datasources.
+An example of Spring Boot, written in Kotlin, demonstrates how to use Hibernate with Kotlin as well as multiple datasources with the ability of creating tables of the datasources. And support for transaction in multiple datasources.
+
+To understand more about the project read the following tutorials,
+
+- [How to deal with Hibernate entities in Kotlin](https://blog.madadipouya.com/2019/09/30/how-to-deal-with-hibernate-entities-in-kotlin/)
+- [Spring Boot connect to multiple datasources](https://blog.madadipouya.com/2019/10/05/spring-boot-connect-to-multiple-datasources/)
 
 
 ## How to run
 
-First need to start the databases (MySQL and PostgreSQL) with `docker-compose`,
+First need to start the databases (MySQL 8 and PostgreSQL 12) with `docker-compose`,
 
 ```bash
 $ docker-compose up -d
