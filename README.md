@@ -7,6 +7,8 @@ To understand more about the project read the following tutorials,
 - [How to deal with Hibernate entities in Kotlin](https://blog.madadipouya.com/2019/09/30/how-to-deal-with-hibernate-entities-in-kotlin/)
 - [Spring Boot connect to multiple datasources](https://blog.madadipouya.com/2019/10/05/spring-boot-connect-to-multiple-datasources/)
 
+- [Spring Boot connect to multiple datasources](https://blog.madadipouya.com/2019/10/05/spring-boot-connect-to-multiple-datasources/)
+
 
 ## How to run
 
