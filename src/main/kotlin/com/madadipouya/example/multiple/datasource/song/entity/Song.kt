@@ -1,9 +1,9 @@
 package com.madadipouya.example.multiple.datasource.song.entity
 
 import com.madadipouya.example.multiple.datasource.entity.AbstractJpaPersistable
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "songs")
