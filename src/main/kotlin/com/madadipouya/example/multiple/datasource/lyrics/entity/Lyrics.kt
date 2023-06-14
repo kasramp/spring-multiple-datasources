@@ -8,6 +8,6 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "lyrics")
 open class Lyrics(
-        @Column(nullable = false)
+        @Column(nullable = false, columnDefinition = "TEXT")
         open val content: String
 ) : AbstractJpaPersistable<Int>()
