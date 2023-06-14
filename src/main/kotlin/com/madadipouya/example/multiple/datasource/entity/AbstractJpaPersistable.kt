@@ -3,7 +3,7 @@ package com.madadipouya.example.multiple.datasource.entity;
 import org.springframework.data.domain.Persistable
 import org.springframework.data.util.ProxyUtils
 import java.io.Serializable
-import javax.persistence.*
+import jakarta.persistence.*
 
 /**
  * Abstract base class for entities. Allows parameterization of id type, chooses auto-generation and implements
