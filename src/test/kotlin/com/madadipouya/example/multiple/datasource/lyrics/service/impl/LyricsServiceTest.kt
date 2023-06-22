@@ -1,13 +1,17 @@
 package com.madadipouya.example.multiple.datasource.lyrics.service.impl
 
+import com.madadipouya.example.multiple.datasource.lyrics.entity.Lyrics
 import com.madadipouya.example.multiple.datasource.lyrics.repository.LyricsRepository
 import com.madadipouya.example.multiple.datasource.song.repository.SongRepository
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.springframework.test.context.junit.jupiter.SpringExtension
@@ -50,6 +54,19 @@ internal class LyricsServiceTest {
 
     @Autowired
     lateinit var lyricsRepository: LyricsRepository
+
+    @AfterEach
+    fun cleanDatabase() {
+        songRepository.deleteAll()
+        lyricsRepository.deleteAll()
+    }
+
+    @Test
+    fun `should insert a lyrics`() {
+        val result = lyricsRepository.save(Lyrics(getTwoForTragedyLyrics())).id!!
+
+        assertTrue(lyricsRepository.existsById(result))
+    }
 
     @Test
     fun `should insert a song with lyrics to two datasources`() {
