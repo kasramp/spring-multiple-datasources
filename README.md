@@ -7,6 +7,7 @@ To understand more about the project read the following tutorials,
 - [How to deal with Hibernate entities in Kotlin](https://www.geekyhacker.com/how-to-deal-with-hibernate-entities-in-kotlin/)
 - [Spring Boot connect to multiple datasources](https://www.geekyhacker.com/spring-boot-connect-to-multiple-datasources/)
 - [Spring transaction with multiple datasources](https://www.geekyhacker.com/spring-transaction-with-multiple-datasources/)
+- [PostgreSQL integration tests using Testcontainers](https://www.geekyhacker.com/postgresql-integration-tests-using-testcontainers/)
 
 ## How to run
 
